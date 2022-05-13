@@ -1,4 +1,4 @@
-import type { Playing, Track } from "~/models/spotify.server";
+import type { Playing } from "~/models/spotify.server";
 
 const SpotifyIcon = () => (
   <svg className="h-4 w-4 " viewBox="0 0 168 168">
