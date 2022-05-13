@@ -3,6 +3,8 @@ import { useLoaderData } from "@remix-run/react";
 import Tracks from "~/components/Tracks";
 import { getTopTracks } from "~/models/spotify.server";
 
+type TopTracks = Awaited<ReturnType<typeof getTopTracks>>;
+
 export const loader: LoaderFunction = async () => {
   const tracks = await getTopTracks();
 
@@ -10,7 +12,7 @@ export const loader: LoaderFunction = async () => {
 };
 
 export default function Index() {
-  const tracks = useLoaderData();
+  const tracks = useLoaderData<TopTracks>();
   return (
     <div className="container mx-auto">
       <Tracks tracks={tracks} />
